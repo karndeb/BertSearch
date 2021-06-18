@@ -39,7 +39,7 @@ You need to set a pretrained BERT model and Elasticsearch's index name as enviro
 
 ```bash
 $ export PATH_MODEL=./cased_L-12_H-768_A-12
-$ export INDEX_NAME=jobsearch
+$ export INDEX_NAME=checksearch
 ```
 
 ### 3. Run Docker containers
@@ -62,7 +62,7 @@ You can use the create index API to add a new index to an Elasticsearch cluster.
 For example, if you want to create `jobsearch` index with `title`, `text` and `text_vector` fields, you can create the index by the following command:
 
 ```bash
-$ python example/create_index.py --index_file=example/index.json --index_name=jobsearch
+$ python example/create_index.py --index_file=example/index.json --index_name=checksearch
 # index.json
 {
   "settings": {
@@ -97,7 +97,7 @@ $ python example/create_index.py --index_file=example/index.json --index_name=jo
 Once you created an index, you’re ready to index some document. The point here is to convert your document into a vector using BERT. The resulting vector is stored in the `text_vector` field. Let`s convert your data into a JSON document:
 
 ```bash
-$ python example/create_documents.py --data=example/example.csv --index_name=jobsearch
+$ python example/create_documents.py --data=example/example.csv --index_name=checksearch
 # example/example.csv
 "Title","Description"
 "Saleswoman","lorem ipsum"
